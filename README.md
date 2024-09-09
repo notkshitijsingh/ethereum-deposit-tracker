@@ -25,3 +25,5 @@ docker run -d ethereum-deposit-tracker
 ```
 
 And you're done! You'll be able to view the real-time logs of your tracker from the container in your Docker dashboard.
+
+![SUBMITTED AS ASSIGNMENT](https://img.shields.io/badge/SUBMITTED%20AS%20ASSIGNMENT-LUGANODES%20HIRING%20PROCESS-green?style=flat)
