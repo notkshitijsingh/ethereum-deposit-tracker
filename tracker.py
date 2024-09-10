@@ -76,7 +76,11 @@ def save_deposit(deposit_data, cursor, conn):
         # send message using telegram # # # # # # # # # 
         from telegram_bot import notify_user
 
-        user_chat_ids = ['1891843152']
+        # Open and read the file
+        with open('chat_id.txt', 'r') as file:
+            # Read each line, strip newline characters, and store them in a list
+            user_chat_ids = [line.strip() for line in file]
+
         message = f"New deposit detected!\nAmount: {deposit_data['amount']} ETH\nFrom: {deposit_data['address']}\nTimestamp: {deposit_data['timestamp']}"
         for user_chat_id in user_chat_ids:
             try:
