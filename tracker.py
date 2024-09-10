@@ -67,12 +67,22 @@ def save_deposit(deposit_data, cursor, conn):
             deposit_data['blockNumber'],
             deposit_data['blockTimestamp'],
             str(deposit_data['sender']),  # ensure the address is stored as string
-            float(deposit_data['amount']),  # convert Decimal to float
+            float(deposit_data['amount']),  # convert decimal to float
             deposit_data['hash']
         ))
         conn.commit()
         logging.info(f"Saved deposit: {deposit_data}")
         print(f"Saved deposit: {deposit_data}")
+        # send message using telegram # # # # # # # # # 
+        from telegram_bot import notify_user
+
+        user_chat_ids = ['1891843152']
+        message = f"New deposit detected!\nAmount: {deposit_data['amount']} ETH\nFrom: {deposit_data['address']}\nTimestamp: {deposit_data['timestamp']}"
+        for user_chat_id in user_chat_ids:
+            try:
+                notify_user(user_chat_id, message)
+            except: pass
+        # # # # # # # # # # # # # # # # # # # # # # # # 
     except sqlite3.IntegrityError:
         logging.warning(f"Duplicate entry found for transaction {deposit_data['hash']}")
         print(f"Duplicate entry found for transaction {deposit_data['hash']}")
