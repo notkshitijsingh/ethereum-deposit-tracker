@@ -1,7 +1,7 @@
 # Ethereum Deposit Tracker
  The objective is to develop a robust and efficient Ethereum Deposit Tracker to monitor and record ETH deposits on the Beacon Deposit Contract.
 
-This can be run as a Python instance or be deployed on Docker.
+This can be run as a Python instance or be deployed on Docker. You can also check out the [Installation Guide](https://youtu.be/X-AYHa0R398) if confused.
 
 ## Run on Local Machine
 Download the ZIP of the source code from the Code section or the latest release from the [Releases](https://github.com/notkshitijsingh/ethereum-deposit-tracker/releases) section. Extract the contents into a folder of your choice and then open your terminal in the main folder and run the following command:
